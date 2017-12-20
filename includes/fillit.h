@@ -13,6 +13,7 @@
 #ifndef FILLIT_H
 # define FILLIT_H
 # include "../libft/libft.h"
+# include <stdio.h>
 
 typedef struct		s_coor t_coor;
 typedef struct		s_tetris t_tetris;
@@ -27,7 +28,8 @@ struct				s_tetris
 {
 	t_coor			*tab;
 	char			c;
-	t_tetris		*next;
+	t_coor			pos;
+t_tetris		*next;
 };
 
 t_tetris			*ft_cut_tetris(t_tetris **elem);
@@ -54,5 +56,9 @@ void				ft_print_tab(char **tab);
 int					ft_tetris2(t_tetris **tetris_map, char **tab, int size, \
 		int tab_size);
 int					ft_next_square(int nb, int next);
+int					ft_tetris_cat_issafe(char **tab, t_tetris elem, t_coor coor, int size);
+void				ft_del_piece(char **tab, char c, int tab_size);
+void				ft_print_char(t_tetris *map);
+
 
 #endif

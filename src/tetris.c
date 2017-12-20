@@ -13,6 +13,23 @@
 #include "fillit.h"
 
 
+void		ft_print_char(t_tetris *map)
+{
+	t_tetris *tmp;
+
+	tmp = map;
+	while (tmp)
+	{
+		ft_putchar(tmp->c);
+		ft_putchar(',');
+		tmp = tmp->next;
+	}
+	ft_putchar('\n');
+}
+
+
+
+
 int				ft_tetris_isvalid(char **tab, t_tetris *tetris_map ,int size)
 {
 	char		c;
@@ -45,6 +62,7 @@ int			ft_tetris3(t_tetris **tetris_map, char **tab, int size, int tab_size)
 		j = i;
 		while (j < size)
 		{
+			ft_print_char(*tetris_map);
 			if (ft_tetris_isvalid(tab, *tetris_map, size))
 				return (1);
 			ft_set_tab(tab, tab_size);
@@ -69,9 +87,10 @@ int				ft_tetris2(t_tetris **tetris_map, char **tab, int size, int tab_size)
 		if (ft_tetris_isvalid(tab, *tetris_map, size))
 			return (1);
 		ft_tetrisrcircular(tetris_map);
+		ft_print_char(*tetris_map);
 		i++;
 	}
-	return(0);
+	return (0);
 }
 
 char			**ft_tetris(t_tetris **tetris_map, int size)

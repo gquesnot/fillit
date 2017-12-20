@@ -13,7 +13,7 @@
 NAME	= fillit
 
 CC		= gcc
-CFLAGS	= -Wall -Werror -Wextra
+CFLAGS	= -Wall -Werror -Wextra -O3
 
 INC		= -I ./libft/ -I ./includes/
 LFLAGS	=  -L ./libft/ -lft
@@ -23,7 +23,7 @@ SRCS	= ft_param.c \
 			ft_tetris.c \
 			ft_struct.c \
 			main.c \
-			tetris.c \
+			tetris2.c \
 			ft_check.c
 
 OBJ_PATH = ./obj/

@@ -61,6 +61,7 @@ int				ft_tetris_cat_issafe(char **tab, t_tetris elem, \
 	i = 0;
 	while (i < 4)
 	{
+	//	printf("cat_safe=%d;%d /%d;%d/ %d\n", coor.y, elem.tab[i].y, coor.x, elem.tab[i].x, size);
 		if (coor.y + elem.tab[i].y >= size || coor.x + elem.tab[i].x >= size)
 			return (0);
 		if (tab[coor.y + elem.tab[i].y][coor.x + elem.tab[i].x] != '.')
