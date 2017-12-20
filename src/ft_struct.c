@@ -1,13 +1,14 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_struct.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: gquesnot <gquesnot@student.le-101.fr>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/11 04:07:04 by gquesnot          #+#    #+#             */
-/*   Updated: 2017/10/16 15:44:22 by gquesnot         ###   ########.fr       */
-/*                                                                            */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ft_struct.c                                      .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: gquesnot <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2017/12/20 13:18:31 by gquesnot     #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/20 13:59:44 by gquesnot    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
 /* ************************************************************************** */
 
 #include "fillit.h"
@@ -26,7 +27,7 @@ t_tetris			*ft_tetrisnew(int fd, int *error, int c)
 	return (new);
 }
 
-void			ft_tetrisadd(t_tetris **tetris_map, t_tetris *new)
+void				ft_tetrisadd(t_tetris **tetris_map, t_tetris *new)
 {
 	t_tetris		*tmp;
 

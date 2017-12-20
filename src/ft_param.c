@@ -1,13 +1,14 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_param.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: gquesnot <gquesnot@student.le-101.fr>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/11 03:13:43 by gquesnot          #+#    #+#             */
-/*   Updated: 2017/10/16 15:56:14 by gquesnot         ###   ########.fr       */
-/*                                                                            */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ft_param.c                                       .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: gquesnot <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2017/12/20 13:18:21 by gquesnot     #+#   ##    ##    #+#       */
+/*   Updated: 2017/12/20 13:59:28 by gquesnot    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
 /* ************************************************************************** */
 
 #include "fillit.h"
@@ -15,10 +16,10 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-void		ft_read_tetris(t_tetris *elem, int size)
+void			ft_read_tetris(t_tetris *elem, int size)
 {
-	int i;
-	int j;
+	int			i;
+	int			j;
 
 	j = 0;
 	i = 0;
@@ -31,7 +32,7 @@ void		ft_read_tetris(t_tetris *elem, int size)
 			ft_putnbr(elem->tab[j].x);
 			ft_putchar('\n');
 			j++;
-			}
+		}
 		i++;
 	}
 	ft_putchar('\n');
@@ -58,49 +59,50 @@ t_coor			*ft_tab_to_coor(char **tab)
 				array[k].y = i;
 				k++;
 			}
-		j++;
+			j++;
 		}
-	i++;
+		i++;
 	}
 	return (array);
 }
 
-char		**ft_malloc_char_tab(int size)
+char			**ft_malloc_char_tab(int size)
 {
-	int		i;
-	char	**tab;
-	
+	int			i;
+	char		**tab;
+
 	i = 0;
-	tab = malloc((size) * sizeof(char*));
+	tab = malloc((size + 1) * sizeof(char*));
 	while (i < size)
 	{
 		tab[i] = ft_strnew(size);
 		i++;
 	}
+	tab[i] = NULL;
 	return (tab);
 }
 
-char		**put_tetris_in_tab(int fd, int *error)
+char			**put_tetris_in_tab(int fd, int *error)
 {
-	int		i;
-	char	**tab;
-	char	*line;
+	int			i;
+	char		**tab;
+	char		*line;
 
 	i = 0;
 	tab = ft_malloc_char_tab(4);
 	while (*error > 0 && i < 4)
-		{
-			*error = get_next_line(fd, &line);
-			tab[i] = ft_strdup(line);
-			i++;
-		}
+	{
+		*error = get_next_line(fd, &line);
+		tab[i] = ft_strdup(line);
+		i++;
+	}
 	return (tab);
 }
 
-int			ft_params_to_struct(t_tetris **tetris_map, char **av, int size)
+int				ft_params_to_struct(t_tetris **tetris_map, char **av, int size)
 {
 	int			fd;
-	t_tetris		*tmp;
+	t_tetris	*tmp;
 	int			error;
 	int			i;
 

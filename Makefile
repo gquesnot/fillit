@@ -23,7 +23,7 @@ SRCS	= ft_param.c \
 			ft_tetris.c \
 			ft_struct.c \
 			main.c \
-			tetris2.c \
+			tetris.c \
 			ft_check.c
 
 OBJ_PATH = ./obj/
@@ -35,17 +35,20 @@ OBJ = $(addprefix $(OBJ_PATH),$(OBJS))
 all: $(NAME)
 
 $(NAME): $(OBJ)
+	make -C libft/
 		$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LFLAGS)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	@mkdir $(OBJ_PATH) 2> /dev/null || echo "" > /dev/null
+	mkdir $(OBJ_PATH) 2> /dev/null || echo "" > /dev/null
 	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 
 clean:
 		rm -f $(OBJ)
-		@rmdir $(OBJ_PATH) 2> /dev/null || echo "" > /dev/null
+		rmdir $(OBJ_PATH) 2> /dev/null || echo "" > /dev/null
+		make -C libft/ clean
 
 fclean: clean
 		rm -f $(NAME)
+		make -C libft/ fclean
 
 re: fclean all
